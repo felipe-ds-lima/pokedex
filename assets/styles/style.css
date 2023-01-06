@@ -10,6 +10,10 @@
   font-family: 'Pixel', monospace;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -17,24 +21,25 @@ body {
   height: 100vh;
 }
 
-/* SCREEN1 =============================== */
+/*SCREEN1 ==========================================*/
 #screen1 {
   width: 350px;
   height: 500px;
+  background-color: #dc0a2d;
   border-radius: 10px;
   border-bottom-right-radius: 0;
-  background-color: #dc0a2d;
   border: 2px solid #58020d;
   display: grid;
   grid-template-areas:
     'top top'
     'content articulation';
-  grid-template-columns: 1fr 40px;
+  grid-template-columns: 1fr 30px;
   grid-template-rows: 100px 1fr;
 }
 
 #screen1 .light {
   font-size: 1px;
+  display: block;
   width: 16em;
   height: 16em;
   border-radius: 50%;
@@ -42,8 +47,8 @@ body {
   border: 2px solid #58020d;
   position: relative;
   overflow: hidden;
-  display: block;
 }
+
 #screen1 .light::after {
   content: '';
   position: absolute;
@@ -54,38 +59,42 @@ body {
   height: 4em;
   border-radius: 50%;
   background-color: #fff;
-  box-shadow: 1em 1em 3em 3em currentColor;
+  box-shadow: 1em 1em 3em 1em currentColor;
   filter: brightness(2);
 }
+
 #screen1 .light.red {
   color: #7c0013;
 }
+
 #screen1 .light.yellow {
   color: #a08b08;
 }
+
 #screen1 .light.green {
   color: #306d4c;
 }
+
 #screen1 .light.glass {
   color: #186a9d;
 }
 
-/* SCREEN TOP =========================== */
+/* SCREEN TOP =====================================*/
 #screen1 .screen-top {
   position: relative;
   grid-area: top;
   height: 100px;
   border-bottom: 2px solid #58020d;
-  padding: 16px;
   display: flex;
+  padding: 16px;
   gap: 8px;
 }
 
 #screen1 .screen-top .corner {
   position: absolute;
   bottom: -2px;
-  right: 38px;
-  width: 208px;
+  right: 28px;
+  width: 218px;
   height: 50px;
   border-right: 2px solid #58020d;
   overflow: hidden;
@@ -96,7 +105,7 @@ body {
   content: '';
   display: block;
   height: 50px;
-  width: 208px;
+  width: 218px;
   background-color: #dc0a2d;
   transform: skewX(-35deg);
   top: 0;
@@ -123,7 +132,7 @@ body {
   font-size: 3px;
 }
 
-/* ARTICULATION ========================= */
+/*ARTICULATION ====================================*/
 #screen1 .articulation {
   grid-area: articulation;
   position: relative;
@@ -150,26 +159,26 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 8px;
-  width: 10px;
+  left: 4px;
+  width: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* CONTENT ============================== */
+/*CONTENT ========================================*/
 #screen1 .content {
-  grid-area: content;
-  position: relative;
-  margin: 8px;
-  border-radius: 10px 0 10px 10px;
-  border: 2px solid #58020d;
-  padding: 24px 16px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  grid-area: content;
+  margin: 8px;
+  border-radius: 10px 0px 10px 10px;
+  border: 2px solid #58020d;
+  padding: 24px 16px;
 }
 
 #screen1 .content > .corner {
   position: absolute;
-  width: 175px;
+  width: 185px;
   height: 50px;
   top: -50px;
   right: -2px;
@@ -202,13 +211,13 @@ body {
   border-radius: 8px;
   background-color: #dddfdf;
   border: 2px solid #58020d;
-  font-size: 1px;
 }
+
 #screen1 .content .screen .corner {
+  transform: translate(-50%, -50%) rotate(45deg);
   position: absolute;
   bottom: -14px;
   left: 6px;
-  transform: translate(-50%, -50%) rotate(45deg);
   width: 40px;
   height: 20px;
   background-color: #dc0a2d;
@@ -229,10 +238,16 @@ body {
 #screen1 .content .screen .display {
   position: relative;
   height: 120px;
-  width: 100%;
+  width: 196px;
+  max-width: 192px;
   background-color: #232323;
   border-radius: 8px;
   overflow: hidden;
+}
+
+#screen1 .content .screen .display.active {
+  background-color: #52ae5f;
+  border: 2px solid #58020d;
 }
 
 #screen1 .content .screen .display::after {
@@ -245,6 +260,7 @@ body {
   height: 200%;
   background-color: rgba(255, 255, 255, 0.2);
   transform: rotate(30deg) translateY(-25%);
+  pointer-events: none;
 }
 
 #screen1 .content .screen .display::before {
@@ -257,6 +273,7 @@ body {
   height: 200%;
   background-color: rgba(255, 255, 255, 0.2);
   transform: rotate(30deg) translateY(-25%);
+  pointer-events: none;
 }
 
 #screen1 .content .screen .space {
@@ -267,32 +284,33 @@ body {
 
 #screen1 .content .screen .speaker {
   position: relative;
-  height: 28px;
   width: 30px;
+  height: 28px;
 }
 
 #screen1 .content .screen .speaker::before {
-  content: '';
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  border-radius: 4px;
+  content: '';
   background-color: #232323;
+  border-radius: 4px;
   box-shadow: 0 8px 0 0 #232323;
 }
+
 #screen1 .content .screen .speaker::after {
-  content: '';
   display: block;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 3px;
-  border-radius: 4px;
+  content: '';
   background-color: #232323;
+  border-radius: 4px;
   box-shadow: 0 -8px 0 0 #232323;
 }
 
@@ -302,23 +320,25 @@ body {
   flex: 1;
   padding-top: 16px;
 }
+
 #screen1 .content .controllers .button-column {
   flex: 1;
 }
 
 #screen1 .content .controllers .button-column .button {
+  margin-top: 8px;
   width: 40px;
   height: 40px;
-  margin-top: 8px;
   border-radius: 50%;
   background-color: #232323;
-  border: 2px solid #000;
+  border: 2px solid rgb(19, 19, 19);
 }
 
 #screen1 .content .controllers .middle-column {
   flex: 2;
   padding: 0 16px;
 }
+
 #screen1 .content .controllers .middle-column .row {
   display: flex;
   justify-content: space-between;
@@ -327,27 +347,28 @@ body {
 #screen1 .content .controllers .middle-column .red-button {
   width: 30px;
   height: 8px;
+  background-color: #dc0a2d;
   border: 2px solid #58020d;
   border-radius: 4px;
-  background-color: #dc0a2d;
 }
 
 #screen1 .content .controllers .middle-column .blue-button {
   width: 30px;
   height: 8px;
+  background-color: #186a9d;
   border: 2px solid #58020d;
   border-radius: 4px;
-  background-color: #186a9d;
 }
+
 #screen1 .content .controllers .middle-column .display {
+  position: relative;
+  overflow: hidden;
+  margin-top: 24px;
   width: 100%;
   height: 60px;
-  margin-top: 24px;
   background-color: #52ae5f;
   border: 2px solid #58020d;
   border-radius: 4px;
-  overflow: hidden;
-  position: relative;
 }
 
 #screen1 .content .controllers .middle-column .display::after {
@@ -389,35 +410,143 @@ body {
   background-color: #232323;
   transform: rotate(45deg);
 }
+
 #screen1 .content .controllers .arrows-column .arrows-button::after {
-  content: 'O';
-  display: block;
-  width: 90px;
-  height: 20px;
-  background-color: #232323;
   position: absolute;
   top: 50%;
   left: 50%;
+  content: 'O';
+  display: flex;
+  width: 90px;
+  height: 20px;
+  background-color: #232323;
   transform: translate(-50%, -50%) rotate(45deg);
   font-size: 16px;
-  color: #000;
-  display: flex;
+  color: #111111;
   justify-content: center;
   align-items: center;
-  line-height: 20px;
   text-align: center;
+  line-height: 20px;
   border-radius: 4px;
 }
 
 #screen1 .content .controllers .arrows-column .arrows-button::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   content: '';
   display: block;
   width: 90px;
   height: 20px;
   background-color: #232323;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
   border-radius: 4px;
+}
+
+/* Main display ==========================================*/
+#main-display {
+  display: flex;
+}
+
+#main-display .pokemon-list {
+  display: none;
+  flex-direction: column;
+  width: 192px;
+  min-width: 192px;
+  list-style: none;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+#main-display .pokemon-list.active {
+  display: flex;
+}
+
+#main-display .pokemon-list li button {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 2px 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+#main-display .pokemon-list li button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#main-display .pokemon-list li button span {
+  font-size: 8px;
+  font-weight: bold;
+}
+
+#main-display .pokemon-details {
+  display: none;
+  grid-template-areas:
+    'image details'
+    'bar bar';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 18px;
+
+  flex-direction: column;
+  width: 192px;
+  height: 116px;
+}
+
+#main-display .pokemon-details.active {
+  display: grid;
+}
+
+#main-display .pokemon-details .details {
+  grid-area: details;
+  flex: 1;
+  font-size: 6px;
+  padding: 14px 4px 8px 0;
+}
+
+#main-display .pokemon-details img {
+  grid-area: image;
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+#main-display .pokemon-details .bar {
+  grid-area: bar;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  background-color: #dddfdf;
+}
+
+#main-display .pokemon-details .bar .back-button {
+  background-color: #186a9d;
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 12px;
+  padding-left: 2px;
+  cursor: pointer;
+}
+
+#main-display .pokemon-details .bar h3 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  text-transform: capitalize;
+}
+
+#main-display .pokemon-details .bar h3 span {
+  font-size: 8px;
 }
