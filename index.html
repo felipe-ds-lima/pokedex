@@ -4,35 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./assets/styles/style.css" />
     <title>Pokedex</title>
-
-    <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
+
   <body>
     <article class="pokedex">
       <section id="screen1">
         <header class="screen-top">
-          <section class="scan">
-            <span class="light glass"></span>
-          </section>
+          <div class="scan">
+            <div class="light glass"></div>
+          </div>
           <span class="light red"></span>
           <span class="light yellow"></span>
           <span class="light green"></span>
 
           <div class="corner"></div>
         </header>
+
         <main class="content">
           <div class="corner"></div>
 
           <article class="screen">
             <div class="corner"></div>
-
             <section class="together">
               <span class="light red"></span>
               <span class="light red"></span>
             </section>
 
-            <section class="display"></section>
+            <section class="display active" id="main-display">
+              <ul class="pokemon-list active">
+                <!-- Lista de pokemons (pelo javascript) -->
+              </ul>
+
+              <article class="pokemon-details">
+                <!-- Sobre o pokemon (pelo javascript) -->
+              </article>
+            </section>
 
             <section class="space">
               <span class="light red"></span>
@@ -44,7 +52,6 @@
             <section class="button-column">
               <div class="button"></div>
             </section>
-
             <section class="middle-column">
               <div class="row">
                 <div class="red-button"></div>
@@ -58,8 +65,12 @@
             </section>
           </article>
         </main>
+
         <aside class="articulation"></aside>
       </section>
+      <!-- <div id="screen2"></div> -->
     </article>
+
+    <script src="./assets/javascript/main.js"></script>
   </body>
 </html>
